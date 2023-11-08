@@ -1,0 +1,63 @@
+version: "3.9"
+services:
+  podcastify-app-web:
+    extends:
+      file: ../podcastify/docker-compose.yml
+      service: podcastify-app-web
+    env_file: .env
+  
+  podcastify-app-db:
+    extends:
+      file: ../podcastify/docker-compose.yml
+      service: podcastify-app-db
+    env_file: .env
+  
+  podcastify-app-phpmyadmin:
+    extends:
+      file: ../podcastify/docker-compose.yml
+      service: podcastify-app-phpmyadmin
+    env_file: .env
+  
+  podcastify-premium-app:
+    extends:
+      file: ../podcastify-premium/docker-compose.yml
+      service: podcastify-premium-app
+    env_file: .env
+
+  podcastify-rest-service-app:
+    extends:
+      file: ../podcastify-rest-service/docker-compose.yml
+      service: podcastify-rest-service-app
+    env_file: .env
+
+  podcastify-rest-service-db:
+    extends:
+      file: ../podcastify-rest-service/docker-compose.yml
+      service: podcastify-rest-service-db
+    env_file: .env
+
+  podcastify-rest-service-cache:
+    extends:
+      file: ../podcastify-rest-service/docker-compose.yml
+      service: podcastify-rest-service-cache
+    env_file: .env
+
+  # podcastify-soap-service-app:
+  #   extends:
+  #     file: ../podcastify-soap-service/docker-compose.yml
+  #     service: podcastify-soap-service-app
+  #   networks:
+  #     - app-tier
+
+  # podcastify-soap-service-db:
+  #   extends:
+  #     file: ../podcastify-soap-service/docker-compose.yml
+  #     service: podcastify-soap-service-db
+  #   networks:
+  #     - app-tier
+
+networks:
+  podcastify-app:
+  podcastify-rest:
+  # podcastify-soap-service:
+
